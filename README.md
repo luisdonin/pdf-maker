@@ -1,122 +1,118 @@
-# PDF Form Builder
+# Criador de Formulários PDF
 
-A web-based application that allows users to upload PDF documents and add interactive form fields (text boxes, checkboxes, and dropdowns) to create fillable PDF forms.
+Uma aplicação web que permite aos usuários fazer upload de documentos PDF e adicionar campos de formulário interativos (caixas de texto, caixas de seleção e menus suspensos) para criar formulários PDF preenchíveis.
 
-## Features
+## Funcionalidades
 
-- 📄 **PDF Upload & Display**: Upload any PDF file and view it in the browser
-- 🖱️ **Visual Form Field Placement**: Click to add form fields directly on the PDF
-- 📝 **Multiple Field Types**: Support for text fields, checkboxes, and dropdown menus
-- ✏️ **Drag & Resize**: Move and resize fields to perfect positioning
-- 💾 **Field Metadata**: Configure field names, required status, and dropdown options
-- ⬇️ **Download Fillable PDF**: Generate and download the PDF with interactive form fields
+-  **Upload e Visualização de PDF**: Faça upload de qualquer arquivo PDF e visualize no navegador
+-  **Posicionamento Visual de Campos**: Clique para adicionar campos de formulário diretamente no PDF
+-  **Vários Tipos de Campo**: Suporte para campos de texto, caixas de seleção e menus suspensos
+-  **Arrastar e Redimensionar**: Mova e redimensione campos para um posicionamento perfeito
+-  **Metadados dos Campos**: Configure nomes dos campos, obrigatoriedade e opções de menu suspenso
+-  **Baixar PDF Preenchível**: Gere e baixe o PDF com campos de formulário interativos
 
-## Installation
+## Instalação
 
-1. Clone the repository:
+1. Clone o repositório:
 ```bash
 git clone https://github.com/luisdonin/pdf-maker.git
 cd pdf-maker
 ```
 
-2. Install dependencies:
+2. Instale as dependências:
 ```bash
 npm install
 ```
 
-## Usage
+## Uso
 
-### Running the Application
+### Executando a Aplicação
 
-Start the local web server:
+Inicie o servidor local:
 ```bash
 npm start
 ```
 
-Then open your browser and navigate to:
+Depois, abra o navegador e acesse:
 ```
 http://localhost:8080
 ```
 
-### Using the PDF Form Builder
+### Como Usar o Criador de Formulários PDF
 
-1. **Upload a PDF**:
-   - Click the "Upload PDF" button or drag and drop a PDF file
-   - The PDF will be displayed in the viewer
+1. **Faça upload de um PDF**:
+   - Clique no botão "Upload PDF" ou arraste um arquivo PDF para a área indicada
+   - O PDF será exibido no visualizador
 
-2. **Add Form Fields**:
-   - Click one of the field type buttons (Text, Checkbox, or Dropdown)
-   - Click on the PDF where you want to place the field
-   - Configure the field in the modal:
-     - Enter a unique field name
-     - For dropdowns, add options (one per line)
-     - Optionally mark as required
-   - Click "Save Field"
+2. **Adicione Campos de Formulário**:
+   - Clique em um dos botões de tipo de campo (Texto, Caixa de Seleção ou Menu Suspenso)
+   - Clique no PDF onde deseja posicionar o campo
+   - Configure o campo na janela modal:
+     - Digite um nome único para o campo
+     - Para menus suspensos, adicione opções (uma por linha)
+     - Opcionalmente, marque como obrigatório
+   - Clique em "Salvar Campo"
 
-3. **Move and Resize Fields**:
-   - Click and drag a field to move it
-   - Drag the resize handle (bottom-right corner) to resize
-   - Click the × button to delete a field
+3. **Mova e Redimensione Campos**:
+   - Clique e arraste um campo para movê-lo
+   - Arraste o controlador de tamanho (canto inferior direito) para redimensionar
+   - Clique no botão × para excluir um campo
 
-4. **Download Your Form**:
-   - Click the "Download PDF" button
-   - Your PDF with interactive form fields will be downloaded
-   - Open the downloaded PDF in any PDF reader to fill out the form
+4. **Baixe seu Formulário**:
+   - Clique no botão "Baixar PDF"
+   - Seu PDF com campos de formulário interativos será baixado
+   - Abra o PDF baixado em qualquer leitor para preencher o formulário
 
-## Technologies Used
+## Tecnologias Utilizadas
 
-- **PDF.js**: For rendering PDFs in the browser
-- **pdf-lib**: For creating and modifying PDF documents with form fields
-- **Vanilla JavaScript**: No framework dependencies
-- **HTML5 & CSS3**: Modern, responsive interface
+- **PDF.js**: Para renderizar PDFs no navegador
+- **pdf-lib**: Para criar e modificar PDFs com campos de formulário
+- **JavaScript Puro**: Sem dependências de frameworks
+- **HTML5 & CSS3**: Interface moderna e responsiva
 
-## Browser Compatibility
+## Compatibilidade com Navegadores
 
-This application works in all modern browsers that support:
-- ES6+ JavaScript
-- HTML5 Canvas
+Esta aplicação funciona nos principais navegadores que suportam:
+- JavaScript ES6+
+- Canvas HTML5
 - File API
 - Blob API
 
-Tested on:
+Testado em:
 - Chrome 90+
 - Firefox 88+
 - Safari 14+
 - Edge 90+
 
-## Project Structure
+## Estrutura do Projeto
 
 ```
 pdf-maker/
-├── index.html      # Main HTML file with UI structure
-├── styles.css      # Styling and layout
-├── app.js          # Application logic and PDF handling
-├── package.json    # Dependencies and scripts
-└── README.md       # This file
+├── index.html      # Arquivo HTML principal com a estrutura da interface
+├── styles.css      # Estilos e layout
+├── app.js          # Lógica da aplicação e manipulação de PDFs
+├── package.json    # Dependências e scripts
+└── README.md       # Este arquivo
 ```
 
-## Development
+## Desenvolvimento
 
-The application uses CDN-hosted libraries for PDF.js and pdf-lib, so no build process is required. Simply edit the files and refresh your browser.
+A aplicação utiliza bibliotecas via CDN para PDF.js e pdf-lib, então não é necessário processo de build. Basta editar os arquivos e atualizar o navegador.
 
-### Key Files
+### Principais Arquivos
 
-- `index.html`: Contains the UI structure including upload area, toolbar, PDF viewer, and field configuration modal
-- `styles.css`: All styling including responsive design and visual effects
-- `app.js`: Core application logic including:
-  - PDF loading and rendering
-  - Field placement and management
-  - Drag and drop functionality
-  - PDF generation with form fields
+- `index.html`: Estrutura da interface com área de upload, barra de ferramentas, visualizador de PDF e modal de configuração dos campos
+- `styles.css`: Estilos incluindo design responsivo e efeitos visuais
+- `app.js`: Lógica principal da aplicação, incluindo:
+  - Carregamento e renderização de PDFs
+  - Posicionamento e gerenciamento de campos
+  - Funcionalidade de arrastar e soltar
+  - Geração do PDF com campos de formulário
 
-## Contributing
+## Contribuição
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contribuições são bem-vindas! Sinta-se à vontade para enviar um Pull Request.
 
-## License
+## Licença
 
 ISC
-
-## Author
-
-Built with ❤️ for creating fillable PDF forms easily
