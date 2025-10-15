@@ -56,10 +56,11 @@ async function handleFileUpload(e) {
 
     try {
         const arrayBuffer = await file.arrayBuffer();
-        // Store both the ArrayBuffer and Uint8Array for different library needs
-        state.pdfBytes = arrayBuffer;
+        // Store a copy of the bytes that won't be detached
+        const bytes = new Uint8Array(arrayBuffer);
+        state.pdfBytes = bytes.slice(); // Create a copy
         
-        const loadingTask = pdfjsLib.getDocument({ data: new Uint8Array(arrayBuffer) });
+        const loadingTask = pdfjsLib.getDocument({ data: bytes });
         state.pdfDoc = await loadingTask.promise;
         
         await renderPDF();
