@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Form Builder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PDF Form Builder</h1>
+            <p>Upload a PDF, add form fields, and download your interactive form</p>
+        </header>
+
+        <div class="toolbar">
+            <div class="upload-section">
+                <label for="pdf-upload" class="btn btn-primary">
+                    <span>📄 Upload PDF</span>
+                    <input type="file" id="pdf-upload" accept=".pdf" style="display: none;">
+                </label>
+            </div>
+            
+            <div class="field-tools" id="field-tools" style="display: none;">
+                <span class="toolbar-label">Add Field:</span>
+                <button class="btn btn-tool" id="add-text-field" title="Add Text Field">
+                    <span>📝</span> Text
+                </button>
+                <button class="btn btn-tool" id="add-checkbox" title="Add Checkbox">
+                    <span>☑️</span> Checkbox
+                </button>
+                <button class="btn btn-tool" id="add-dropdown" title="Add Dropdown">
+                    <span>📋</span> Dropdown
+                </button>
+                <div class="toolbar-divider"></div>
+                <button class="btn btn-success" id="download-pdf" title="Download PDF">
+                    <span>⬇️</span> Download PDF
+                </button>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="upload-area" id="upload-area">
+                <div class="upload-placeholder">
+                    <div class="upload-icon">📄</div>
+                    <h2>Upload a PDF to get started</h2>
+                    <p>Click "Upload PDF" button or drag and drop a PDF file here</p>
+                </div>
+            </div>
+
+            <div class="pdf-container" id="pdf-container" style="display: none;">
+                <div class="pdf-canvas-wrapper" id="pdf-canvas-wrapper">
+                    <canvas id="pdf-canvas"></canvas>
+                    <div class="fields-overlay" id="fields-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Field Configuration Modal -->
+    <div class="modal" id="field-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Configure Field</h3>
+                <button class="close-btn" id="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="field-name">Field Name:</label>
+                    <input type="text" id="field-name" placeholder="Enter field name">
+                </div>
+                <div class="form-group" id="dropdown-options-group" style="display: none;">
+                    <label for="dropdown-options">Options (one per line):</label>
+                    <textarea id="dropdown-options" rows="5" placeholder="Option 1&#10;Option 2&#10;Option 3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="field-required">
+                        Required field
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-field">Cancel</button>
+                <button class="btn btn-primary" id="save-field">Save Field</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
