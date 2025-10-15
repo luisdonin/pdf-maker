@@ -1,5 +1,5 @@
 // Initialize PDF.js
-pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'node_modules/pdfjs-dist/build/pdf.worker.min.js';
 
 // Application state
 let state = {
@@ -56,9 +56,10 @@ async function handleFileUpload(e) {
 
     try {
         const arrayBuffer = await file.arrayBuffer();
-        state.pdfBytes = new Uint8Array(arrayBuffer);
+        // Store both the ArrayBuffer and Uint8Array for different library needs
+        state.pdfBytes = arrayBuffer;
         
-        const loadingTask = pdfjsLib.getDocument({ data: state.pdfBytes });
+        const loadingTask = pdfjsLib.getDocument({ data: new Uint8Array(arrayBuffer) });
         state.pdfDoc = await loadingTask.promise;
         
         await renderPDF();

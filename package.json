@@ -7,7 +7,12 @@
     "start": "npx http-server -p 8080",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["pdf", "forms", "form-builder", "pdf-lib"],
+  "keywords": [
+    "pdf",
+    "forms",
+    "form-builder",
+    "pdf-lib"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
